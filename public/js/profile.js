@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
   const review = document.querySelector('#game-review').value.trim();
 
   if (gameName && review) {
-    const response = await fetch(`/api/projects`, {
+    const response = await fetch(`/api/reviews`, {
       method: 'POST',
       body: JSON.stringify({ gameName, review }),
       headers: {

@@ -29,7 +29,7 @@ Games.belongsTo(User, {
 
 Review.belongsTo(Games, {
   foreignKey: 'game_id',
-  onDelete: 'CASCADE'
-})
+  onDelete: 'CASCADE',
+});
 
 module.exports = { User, Review, Games };

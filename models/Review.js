@@ -11,10 +11,12 @@ Review.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     game_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     Review: {
       type: DataTypes.STRING,
       allowNull: false,

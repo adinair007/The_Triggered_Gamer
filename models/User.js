@@ -19,8 +19,8 @@ User.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      primaryKey:true,
     },
+
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,6 +29,7 @@ User.init(
         isEmail: true,
       },
     },
+    
     password: {
       type: DataTypes.STRING,
       allowNull: false,

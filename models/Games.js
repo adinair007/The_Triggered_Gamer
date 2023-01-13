@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Review extends Model {}
+class Games extends Model {}
 
-Review.init(
+Games.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,43 +12,39 @@ Review.init(
       autoIncrement: true,
     },
 
+    slug: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+
     game_title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [8],
+      },
     },
 
-    Review: {
+    game_description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
+    },
+
+    release_date: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    user_score: {
+    metacritic: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      min: 0,
-      max: 10,
     },
 
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-
-    user_id: {
+    game_image: {
       type: DataTypes.STRING,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-
-    game_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'games',
-        key: 'id',
-      },
     },
   },
   {
@@ -56,8 +52,8 @@ Review.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'review',
+    modelName: 'games',
   }
 );
 
-module.exports = Review;
+module.exports = Games;

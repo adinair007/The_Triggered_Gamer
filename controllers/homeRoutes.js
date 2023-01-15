@@ -1,6 +1,40 @@
 const router = require('express').Router();
 const { Review, User } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require('axios');
+
+//RAWG API CODE
+require('dotenv').config();
+
+router.get('/', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}`,
+  })
+    .then((apiResponse) => {
+      // console.log(apiResponse);
+
+      let gamesData = [];
+      for (let i = 0; i < 10; i++) {
+        let temp = {
+          name: apiResponse.data.results[i].name,
+          image: apiResponse.data.results[i].background_image,
+          metacritic: apiResponse.data.results[i].metacritic,
+        };
+        gamesData.push(temp);
+      }
+      return gamesData;
+    })
+    .then((displayData) => {
+      res.render('homepage', {
+        // pass the data to handlebars
+        displayData,
+      });
+    })
+    .catch((error) => console.log(error));
+});
+
+//END RAWG API CODE
 
 router.get('/', async (req, res) => {
   try {

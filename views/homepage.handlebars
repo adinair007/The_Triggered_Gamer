@@ -1,19 +1,25 @@
 <!-- Loop over each object in the review array -->
-{{#each Review as |Review| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/Review/{{Review.id}}">{{Review.user_name}}</a>
-    </h2>
-    <p>{{Review.Review}}</p>
-    <p>Created by {{Review.user_name}} on {{format_date Review.date_created}}</p>
+{{#each Games as |Games| }}
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img class="has-ration" width="640" height="360" src="{{displayData.Games.game_image}}" alt="Placeholder image">
+    </figure>
   </div>
-  <div class="col-md-7">
-    <p>
-      Rating:{{Review.user_score}}/10.
-    </p>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">{{Games.game_title}}</p>
+        <p class="subtitle is-6">{{Games.metacritic}}</p>
+      </div>
+    </div>
+    <div class="content">
+     {{Games.game_description}}.
+      <a href="/review">Checkout some reviews!</a>
+      <br>
+      <p> Released: {{games.release_date}}
+    </div>
   </div>
 </div>
+
 {{/each}}

@@ -10,14 +10,16 @@ router.get('/', async (req, res) => {
   try {
     const response = await axios({
       method: 'get',
-      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=5`,
+      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=25`,
     });
 
     let gamesData = [];
     const { results } = response.data;
     for (let i = 0; i < results.length; i++) {
       const game = results[i];
-      const gameData = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${process.env.API_KEY}`);
+      const gameData = await axios.get(
+        `https://api.rawg.io/api/games/${game.id}?key=${process.env.API_KEY}`
+      );
       let temp = {
         name: gameData.data.name,
         image: gameData.data.background_image,
@@ -30,7 +32,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       // pass the data to handlebars
       games: gamesData,
-    }); 
+    });
   } catch (error) {
     console.error(error);
     res.status(500).render('routeError', { error });

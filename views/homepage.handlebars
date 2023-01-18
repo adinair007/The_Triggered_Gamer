@@ -1,10 +1,10 @@
 <!-- Loop over each object in the review array -->
 {{#each games as |game| }}
-<div class="card">
+
+<div class="game-cards">
   <div class="card-image">
-    <figure class="image is-4by3">
-      <img class="has-ration" width="640" height="360" src="{{game.image}}" alt="Placeholder image">
-    </figure>
+    
+      <img class="has-ration" width="300" height="250" src="{{game.image}}" alt="Placeholder image">
   </div>
   <div class="card-content">
     <div class="media">
@@ -14,12 +14,13 @@
       </div>
     </div>
     <div class="content">
-      {{game.description}}
+      {{!-- {{game.description}} --}}
       <a href="/review">Checkout some reviews!</a>
       <br>
       <p> Released: {{game.released}}
     </div>
   </div>
 </div>
+
 
 {{/each}}

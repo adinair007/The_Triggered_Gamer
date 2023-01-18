@@ -1,31 +1,9 @@
-const newFormHandler = async (event) => {
-  event.preventDefault();
-
-  const gameName = document.querySelector('#game-title').value.trim();
-  const review = document.querySelector('#game-review').value.trim();
-
-  if (gameName && review) {
-    const response = await fetch(`/api/reviews`, {
-      method: 'POST',
-      body: JSON.stringify({ gameName, review }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create review');
-    }
-  }
-};
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/reviews/{id}`, {
+    const response = await fetch(`/api/reviews/${id}`, {
       method: 'DELETE',
     });
 
@@ -37,9 +15,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.new-review-form')
-  .addEventListener('submit', newFormHandler);
 
 document
   .querySelector('.review-list')

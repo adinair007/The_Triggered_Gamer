@@ -6,32 +6,35 @@ const axios = require('axios');
 //RAWG API CODE
 require('dotenv').config();
 
-router.get('/', (req, res) => {
-  axios({
-    method: 'get',
-    url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}`,
-  })
-    .then((apiResponse) => {
-      // console.log(apiResponse);
+router.get('/', async (req, res) => {
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=5`,
+    });
 
-      let gamesData = [];
-      for (let i = 0; i < 10; i++) {
-        let temp = {
-          name: apiResponse.data.results[i].name,
-          image: apiResponse.data.results[i].background_image,
-          metacritic: apiResponse.data.results[i].metacritic,
-        };
-        gamesData.push(temp);
-      }
-      return gamesData;
-    })
-    .then((displayData) => {
-      res.render('homepage', {
-        // pass the data to handlebars
-        displayData,
-      });
-    })
-    .catch((error) => console.log(error));
+    let gamesData = [];
+    const { results } = response.data;
+    for (let i = 0; i < results.length; i++) {
+      const game = results[i];
+      const gameData = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${process.env.API_KEY}`);
+      let temp = {
+        name: gameData.data.name,
+        image: gameData.data.background_image,
+        metacritic: gameData.data.metacritic,
+        description: gameData.data.description,
+        released: gameData.data.released,
+      };
+      gamesData.push(temp);
+    }
+    res.render('homepage', {
+      // pass the data to handlebars
+      games: gamesData,
+    }); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).render('routeError', { error });
+  }
 });
 
 //END RAWG API CODE

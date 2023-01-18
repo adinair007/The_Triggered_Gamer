@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   try {
     const response = await axios({
       method: 'get',
-      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=5`,
+      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=25`,
     });
 
     let gamesData = [];

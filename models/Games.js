@@ -18,7 +18,7 @@ Games.init(
       unique: true,
     },
 
-    game_title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -26,7 +26,7 @@ Games.init(
       },
     },
 
-    game_description: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -34,7 +34,7 @@ Games.init(
       },
     },
 
-    release_date: {
+    released: {
       type: DataTypes.STRING,
       allowNull: false,
     },

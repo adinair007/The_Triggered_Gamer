@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
         metacritic: gameData.data.metacritic,
         description: gameData.data.description,
         released: gameData.data.released,
+        id: gameData.data.id,
       };
       gamesData.push(temp);
     }

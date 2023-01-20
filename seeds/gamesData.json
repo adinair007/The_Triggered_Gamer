@@ -1,0 +1,26 @@
+[
+    {
+        "slug": "the-witcher-3-wild-hunt" ,
+        "name": "The Witcher 3: Wild Hunt",
+        "description": "The third game in a series, it holds nothing back from the player. Open world adventures of the renowned monster slayer Geralt of Rivia are now even on a larger scale. Following the source material more accurately, this time Geralt is trying to find the child of the prophecy, Ciri ",
+        "released": "2015-05-18",
+        "metacritic": 92,
+        "game_image": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg"
+    },
+    {
+        "slug": "fortnite" ,
+        "name": "Fortnite: Save The World",
+        "description": "Fortnite is a survival simulator with an open world.",
+        "released": "2017-07-21",
+        "metacritic": 81,
+        "game_image": "https://media.rawg.io/media/games/d97/d97f663b752a6484df105993f17abb49.jpg"
+    },
+    {
+        "slug": "elden-ring" ,
+        "name": "Elden Ring",
+        "description": "The Golden Order has been broken.Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+        "released": "2022-02-25",
+        "metacritic": 95,
+        "game_image": "https://media.rawg.io/media/games/5ec/5ecac5cb026ec26a56efcc546364e348.jpg"
+    }
+]

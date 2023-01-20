@@ -17,7 +17,7 @@ Review.init(
       allowNull: false,
     },
 
-    Review: {
+    review: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -39,14 +39,6 @@ Review.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
-      },
-    },
-
-    game_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'games',
         key: 'id',
       },
     },

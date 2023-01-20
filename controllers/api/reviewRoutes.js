@@ -63,11 +63,11 @@ router.post('/', withAuth, async (req, res) => {
     const newReview = await Review.create({
       review_body: req.body.review_body,
       review_date: req.body.review_date,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     req.session.save(() => {
-      req.session.logged_in = true;
+      // req.session.logged_in = true;
       res.render('review', {
         // pass the data to handlebars
         reviews: newReview,
@@ -78,24 +78,24 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    const reviewUpdate = await Review.update(
-      {
-        review_body: req.body.review_body,
-      },
-      {
-        where: { id: req.params.id },
-      }
-    );
+// router.put('/:id', withAuth, async (req, res) => {
+//   try {
+//     const reviewUpdate = await Review.update(
+//       {
+//         review_body: req.body.review_body,
+//       },
+//       {
+//         where: { id: req.params.id },
+//       }
+//     );
 
-    res.render('review', {
-      reviews: reviewUpdate,
-    });
-  } catch (err) {
-    res.status(500).render('routeError', { error });
-  }
-});
+//     res.render('review', {
+//       reviews: reviewUpdate,
+//     });
+//   } catch (err) {
+//     res.status(500).render('routeError', { error });
+//   }
+// });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

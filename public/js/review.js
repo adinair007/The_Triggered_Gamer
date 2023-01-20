@@ -1,47 +1,47 @@
-const searchForm = async (event) => {
-  event.preventDefault();
+// const searchForm = async (event) => {
+//   event.preventDefault();
 
-  let search = document.getElementById('searchInput').value.trim();
+//   let search = document.getElementById('searchInput').value.trim();
 
-  console.log('search' + search);
-  if (search) {
-    const response = await fetch(`/search?gametitle=${search}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((results) => {
-        console.log(response);
-        return results.json();
-      })
-      .then((resultsData) => {
-        console.log('bark', resultsData);
-        displayGameInfo(resultsData);
-      });
-  }
-};
+//   console.log('search' + search);
+//   if (search) {
+//     const response = await fetch(`/search?gametitle=${search}`, {
+//       method: 'GET',
+//       headers: { 'Content-Type': 'application/json' },
+//     })
+//       .then((results) => {
+//         console.log(response);
+//         return results.json();
+//       })
+//       .then((resultsData) => {
+//         console.log('bark', resultsData);
+//         displayGameInfo(resultsData);
+//       });
+//   }
+// };
 
-const displayGameInfo = async (gameInfo) => {
-  let gameCardEl = document.getElementById('gameCard');
-  let gameTitle = document.getElementById('gameTitle');
-  gameTitle.setAttribute('data-slug', gameInfo.slug);
-  let gameDescription = document.getElementById('description');
-  let gameMetacritic = docuement.getElementById('metacritic');
-  let released = document.getElementById('released');
+// const displayGameInfo = async (gameInfo) => {
+//   let gameCardEl = document.getElementById('gameCard');
+//   let gameTitle = document.getElementById('gameTitle');
+//   gameTitle.setAttribute('data-slug', gameInfo.slug);
+//   let gameDescription = document.getElementById('description');
+//   let gameMetacritic = docuement.getElementById('metacritic');
+//   let released = document.getElementById('released');
 
-  gameTitle.setAttribute('data-gameId', gameInfo.gameId);
-  gameDescription.textContent = gameInfo.description;
-  gameImage.setAttribute('src', gameInfo.game_image);
-  released.textContent = gameInfo.released;
-  gameMetacritic.textContent = gameInfo.metacritic;
-};
+//   gameTitle.setAttribute('data-gameId', gameInfo.gameId);
+//   gameDescription.textContent = gameInfo.description;
+//   gameImage.setAttribute('src', gameInfo.game_image);
+//   released.textContent = gameInfo.released;
+//   gameMetacritic.textContent = gameInfo.metacritic;
+// };
 
 const reviewForm = async (event) => {
   event.preventDefault();
 
   console.log('Inside reviewForm');
-  let ratingEl = document.getElementById('inputRating');
-  let reviewContent = document.getElementById('userReview');
-  let gameTitle = document.getElementById('gameTitle');
+  let ratingEl = document.getElementById('user_score');
+  let reviewContent = document.getElementById('Review');
+  let gameTitle = document.getElementById('game_title');
 
   if (!ratingEl.value) {
     alert('Please provide a rating out of 10.');
@@ -57,7 +57,7 @@ const reviewForm = async (event) => {
   }
 
   if (gameTitle && ratingEl && reviewContent) {
-    const response = await fetch(`/api/projects`, {
+    const response = await fetch(`/api/review`, {
       method: 'POST',
       body: JSON.stringify({ gameTitle, ratingEl, reviewContent }),
       headers: {
@@ -73,32 +73,32 @@ const reviewForm = async (event) => {
   }
 };
 
-const editButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+// const editButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('data-id')) {
+//     const id = event.target.getAttribute('data-id');
 
-    if (gameTitle && ratingEl && reviewContent) {
-      const response = await fetch(`/api/projects/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ gameTitle, ratingEl, reviewContent }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.ok) {
-        document.location.replace('/review');
-      }
-    } else {
-      alert('Unable to edit review.');
-    }
-  }
-};
+//     if (gameTitle && ratingEl && reviewContent) {
+//       const response = await fetch(`/api/reviews/${id}`, {
+//         method: 'PUT',
+//         body: JSON.stringify({ gameTitle, ratingEl, reviewContent }),
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       if (response.ok) {
+//         document.location.replace('/review');
+//       }
+//     } else {
+//       alert('Unable to edit review.');
+//     }
+//   }
+// };
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/reviews/${id}`, {
+    const response = await fetch(`/api/review/${id}`, {
       method: 'DELETE',
     });
 
@@ -110,11 +110,11 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document.getElementById('reviewForm').addEventListener('submit', reviewForm);
+document.querySelector('form-group').addEventListener('submit', reviewForm);
 document
   .querySelector('.reviewList')
   .addEventListener('click', delButtonHandler);
-document
-  .querySelector('.reviewList')
-  .addEventListener('click', editButtonHandler);
-document.getElementById('searchForm').addEventListener('submit', searchForm);
+// document
+//   .querySelector('.reviewList')
+//   .addEventListener('click', editButtonHandler);
+// document.getElementById('searchForm').addEventListener('submit', searchForm);

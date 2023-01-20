@@ -1,6 +1,21 @@
-<div class="text-center">
-  <h2>{{Review.game_title}}</h2>
-  <p>rated:{{Review.user_score}}/10</p>
-  <p>Reviewed by {{Review.user_name}} on {{format_date Review.date_created}}</p>
-  <p>{{Review.Review}}</p>
+<div class="col-md-6">
+    <h3>Create a Review:</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="game_title">Game Title:</label>
+        <input class="form-input" type="text" id="game_title" name="game_title" />
+      </div>
+      <div class="form-group">
+        <label for="user_score">Rating:</label>
+        <input class="form-input" type="number" id="user_score" name="user_score" />
+      </div>
+      <div class="form-group">
+        <label for="Review">Review:</label>
+        <textarea class="form-input" id="Review" name="Review"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
 </div>

@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Review, User, Games } = require('../models');
 const withAuth = require('../utils/auth');
 
-
 router.get('/search', async (req, res) => {
   try {
     console.log(req.query);
@@ -74,13 +73,13 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const reviews = reviewData.map(review => review.get({ plain: true }));
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
 
     res.render('review', {
       reviews,
     });
   } catch (err) {
-    res.status(500).render('routeError', { error });
+    res.status(500).render('routeError', { err });
   }
 });
 

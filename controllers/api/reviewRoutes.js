@@ -1,62 +1,5 @@
 const router = require('express').Router();
-const { Review, User, Games } = require('../../models');
-const withAuth = require('../../utils/auth');
-
-router.get('/', async (req, res) => {
-  try {
-    const reviewData = await Review.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['id', 'user_name'],
-        },
-        {
-          model: Games,
-          attributes: ['id', 'name'],
-        },
-      ],
-    });
-
-    res.render('review', {
-      reviews: reviewData,
-    });
-  } catch (err) {
-    res.status(500).render('routeError', { error });
-  }
-});
-
-router.get('/:id', async (req, res) => {
-  try {
-    const reviewData = await Review.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['id', 'user_name'],
-        },
-        {
-          model: Games,
-          attributes: ['id', 'name'],
-        },
-      ],
-    });
-
-    if (!reviewData) {
-      res.status(404).render('404', { doesNotExist });
-      return;
-    }
-
-    res.status(200).json(reviewData);
-
-    const review = reviewData.get({ plain: true });
-
-    res.render('review', {
-      ...review,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).render('routeError', { error });
-  }
-});
+const { Review } = require('../../models');
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -66,15 +9,9 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
 
-    req.session.save(() => {
-      req.session.logged_in = true;
-      res.render('review', {
-        // pass the data to handlebars
-        reviews: newReview,
-      });
-    });
+    req.status(200).json(newReview);
   } catch (err) {
-    res.status(500).render('routeError', { error });
+    res.status(500).json(error);
   }
 });
 
@@ -85,15 +22,18 @@ router.put('/:id', withAuth, async (req, res) => {
         review_body: req.body.review_body,
       },
       {
-        where: { id: req.params.id },
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
       }
     );
 
-    res.render('review', {
-      reviews: reviewUpdate,
-    });
+    const review = reviewUpdate.get({ plain: true });
+
+    res.status(200).json(review);
   } catch (err) {
-    res.status(500).render('routeError', { error });
+    res.status(500).json(error);
   }
 });
 
@@ -107,16 +47,12 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!reviewDelete) {
-      res.status(404).render('404', { doesNotExist });
+      res.status(404).end();
       return;
     }
 
-    res.render('review', {
-      reviews: reviewDelete,
-    });
+    res.status(200).json({ success: true });
   } catch (err) {
-    res.status(500).render('routeError', { error });
+    res.status(500).json(error);
   }
 });
-
-module.exports = router;

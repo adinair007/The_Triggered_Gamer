@@ -12,7 +12,7 @@
     {{#each Review as |Review|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{Review.id}}">{{Review.Review}}</a></h4>
+        <h4><a href="/review/{{Review.id}}">{{Review.Review}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{Review.id}}">DELETE</button>
@@ -23,6 +23,6 @@
   {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
-<script src="./js/game.js"></script>
+<script src="../public/js/profile.js"></script>
+<script src="../public/js/review.js"></script>
 

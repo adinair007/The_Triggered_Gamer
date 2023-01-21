@@ -1,21 +1,82 @@
-<div class="col-md-6">
-    <h3>Create a Review:</h3>
+{{! search bar }}
+<section class='is-full'>
+  <div class='reviews-page'>
+    <div class='is-6'>
+      <nav class='navbar is-link'>
+        <form class='form-inline searchForm'>
+          <input
+            class='input is-info'
+            type='search'
+            placeholder='Search a game!'
+            aria-label='Search'
+            id='searchInput'
+          />
+          <button
+            class='button is-danger is-rounded is-normal is-responsive'
+            id='searchBtn'
+            type='submit'
+          >Search</button>
+        </form>
+      </nav>
+    </div>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="game_title">Game Title:</label>
-        <input class="form-input" type="text" id="game_title" name="game_title" />
+    {{! game card with description }}
+    <div class='card' id="gameCard">
+      <header class='card-header'>
+        <p
+          class='card-header-title game-title'
+          id='game-title'
+          data-slug='{{slug}}'
+        >
+          Game Title:
+          {{title}}"
+        </p>
+      </header>
+      {{!-- <div class='card-image'>
+        <figure class='image is-128x128'>
+          <img id='game-image' src='...' alt='...' />
+        </figure>
+      </div> --}}
+      <div class='card content'>
+        <h6 id='realeased'></h6>
+        <h6 id='metacritic'></h6>
+        <p class='card-text' id='gameDescription'>Description:
+          {{{game_description}}}</p>
       </div>
-      <div class="form-group">
-        <label for="user_score">Rating:</label>
-        <input class="form-input" type="number" id="user_score" name="user_score" />
-      </div>
-      <div class="form-group">
-        <label for="Review">Review:</label>
-        <textarea class="form-input" id="Review" name="Review"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-</div>
+    </div>
+
+    {{! review form }}
+    <div class='col-md-6'>
+      <h3>Create a Review:</h3>
+
+      <form class='form new-project-form'>
+        <div class='form-group'>
+          <label for='game_title'>Game Title:</label>
+          <input
+            class='form-input'
+            type='text'
+            id='game_title'
+            name='game_title'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='user_score'>Rating:</label>
+          <input
+            class='form-input'
+            type='number'
+            id='user_score'
+            name='user_score'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='Review'>Review:</label>
+          <textarea class='form-input' id='Review' name='Review'></textarea>
+        </div>
+        <div class='form-group'>
+          <button type='submit' class='btn btn-primary'>Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<script src="/js/review.js"></script>

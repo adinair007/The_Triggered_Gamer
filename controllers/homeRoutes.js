@@ -52,4 +52,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/profile', (req, res) => {
+  // If the user is not already logged in, redirect the request to another route
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('profile', { name: 'Whats up' }); // TODO
+});
+
 module.exports = router;

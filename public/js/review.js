@@ -2,6 +2,7 @@ const searchForm = async (event) => {
   event.preventDefault();
 
   let search = document.getElementById('searchInput').value.trim();
+  search = search.replace(/\s/g, '-');
 
   console.log('search' + search);
   if (search) {
@@ -22,15 +23,17 @@ const searchForm = async (event) => {
 
 const displayGameInfo = async (gameInfo) => {
   let gameCardEl = document.getElementById('gameCard');
-  let gameTitle = document.getElementById('gameTitle');
+  gameCardEl.style.display = 'inline-block';
+  let gameTitle = document.getElementById('game-title');
   gameTitle.setAttribute('data-slug', gameInfo.slug);
   let gameDescription = document.getElementById('description');
   let gameMetacritic = docuement.getElementById('metacritic');
+  let gameImage = document.getElementById('game-image');
   let released = document.getElementById('released');
 
-  gameTitle.setAttribute('data-gameId', gameInfo.gameId);
+  gameTitle.setAttribute('data-gameId', gameInfo.name);
   gameDescription.textContent = gameInfo.description;
-  gameImage.setAttribute('src', gameInfo.game_image);
+  gameImage.setAttribute('src', gameInfo.background_image);
   released.textContent = gameInfo.released;
   gameMetacritic.textContent = gameInfo.metacritic;
 };
@@ -110,11 +113,11 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document.querySelector('form-group').addEventListener('submit', reviewForm);
-document
-  .querySelector('.reviewList')
-  .addEventListener('click', delButtonHandler);
+document.querySelector('.form-group').addEventListener('submit', reviewForm);
+// document
+//   .querySelector('.reviewList')
+//   .addEventListener('click', delButtonHandler);
 // document
 //   .querySelector('.reviewList')
 //   .addEventListener('click', editButtonHandler);
-// document.getElementById('searchForm').addEventListener('submit', searchForm);
+document.getElementById('searchBtn').addEventListener('submit', searchForm);

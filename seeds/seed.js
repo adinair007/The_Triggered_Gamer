@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Review } = require('../models');
+const { User, Review, Games } = require('../models');
 
 const userData = require('./userData.json');
 const reviewData = require('./reviewData.json');
+const gamesData = require('./gamesData.json')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -16,6 +17,12 @@ const seedDatabase = async () => {
     await Review.create({
       ...review,
       user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  };
+
+  for (const games of gamesData) {
+    await Games.bulkCreate({
+      ...games,
     });
   }
 

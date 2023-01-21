@@ -38,11 +38,13 @@
   border-radius: 5%;
   justify-content: center;
   
+  
 }
 .reveal-modal {
  justify-content: center;
   position: relative;
   margin: 0 auto; 
+  
 }
 
 

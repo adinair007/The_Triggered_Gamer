@@ -16,19 +16,23 @@
       </div>
     </div>
     <div class="content">
-      <a href="/review">Checkout some reviews!</a>
-      <br>
+     
+    
       <p> Released: {{game.released}} </p>  
 
       <a href="#container_{{game.id}}">Click for description!</a>
+        <br></br>
+      <a href="/review">Checkout some reviews!</a>
+      
 <div class="modal-container" id="container_{{game.id}}">
     <div id="exampleModal" class="reveal-modal">
       <center><img class="has-ration" width="400" height="350" src="{{game.image}}" alt="Placeholder image"></center>
       <center>{{game.name}}</center>
       {{game.released}}
     {{{game.description}}}
-    <a href="#">Close Modal</a>
-    </div>
+    <a href="#close">Close Modal</a>
+    
+    </div>  
 </div>     
     </div>
   </div>

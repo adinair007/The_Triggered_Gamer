@@ -114,4 +114,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get("/new", withAuth, (req, res) => {
+  res.render("new-review", {
+    review
+  });
+});
+
 module.exports = router;

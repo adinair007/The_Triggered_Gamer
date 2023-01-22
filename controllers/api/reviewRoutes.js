@@ -1,58 +1,55 @@
 const router = require('express').Router();
-const { Review } = require('../../models');
+const { Review, User, Games } = require('../../models');
+const withAuth = require("../../utils/auth")
 
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newReview = await Review.create({
-      review_body: req.body.review_body,
-      review_date: req.body.review_date,
-      // user_id: req.session.user_id,
-    });
-
-    req.status(200).json(newReview);
-  } catch (err) {
-    res.status(500).json(error);
-  }
+router.post("/", withAuth, async (req, res) => {
+  const body = req.body;
+  console.log(req.session.userId);
+  await Review.create({ ...body, userId: req.session.userId })
+      .then(newReview => {
+          res.json(newReview);
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      });
 });
 
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    const reviewUpdate = await Review.update(
-      {
-        review_body: req.body.review_body,
-      },
-      {
-        where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
-        },
-      }
-    );
-
-    const review = reviewUpdate.get({ plain: true });
-
-    res.status(200).json(review);
-  } catch (err) {
-    res.status(500).json(error);
-  }
-});
-
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const reviewDelete = await Review.destroy({
+router.put("/:id", withAuth, async (req, res) => {
+  console.log(req.body, req.params.id)
+  await Review.update(req.body, {
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!reviewDelete) {
-      res.status(404).end();
-      return;
-    }
-
-    res.status(200).json({ success: true });
-  } catch (err) {
-    res.status(500).json(error);
-  }
+          id: req.params.id
+      }
+  })
+      .then(affectedRows => {
+          if (affectedRows > 0) {
+              res.status(200).end();
+          } else {
+              res.status(404).end();
+          }
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      });
 });
+
+router.delete("/:id", withAuth, async (req, res) => {
+  console.log(req.body, req.params.id)
+  await Review.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+      .then(affectedRows => {
+          if (affectedRows > 0) {
+              res.status(200).end();
+          } else {
+              res.status(404).end();
+          }
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      });
+});
+
+module.exports = router;

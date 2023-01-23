@@ -3,7 +3,7 @@ const { User, Review, Games } = require('../models');
 
 const userData = require('./userData.json');
 const reviewData = require('./reviewData.json');
-const gamesData = require('./gamesData.json')
+const gamesData = require('./gamesData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,16 +13,17 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  for (const games of gamesData) {
+    await Games.create({
+      ...games,
+    });
+  }
+
   for (const review of reviewData) {
     await Review.create({
       ...review,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  };
-
-  for (const games of gamesData) {
-    await Games.bulkCreate({
-      ...games,
+      // game_id: games[Math.floor(Math.random() * games.length)].id,
     });
   }
 

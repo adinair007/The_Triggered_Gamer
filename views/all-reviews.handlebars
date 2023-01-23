@@ -8,9 +8,12 @@
         </h2>
         <div>
           Posted by
-          {{User.username}}
+          {{#each users as |user|}}
+          {{user_name}}
+          {{/each}}
           on
           {{ date_created}}
+          user score: {{user_score}}
         </div>
       </div>
       <div class='card-content'>

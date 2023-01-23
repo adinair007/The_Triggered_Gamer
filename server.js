@@ -11,7 +11,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({
+  helpers: {
+      format_date: date => {
+          return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      }
+  }
+});
 
 const sess = {
   secret: 'Super secret secret',

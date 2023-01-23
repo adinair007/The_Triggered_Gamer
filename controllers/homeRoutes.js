@@ -8,9 +8,17 @@ require('dotenv').config();
 
 router.get('/', async (req, res) => {
   try {
+    const gamesQuery = {
+      key: process.env.API_KEY,
+      page_size: 25,
+    };
+    if (req.query.search) {
+      gamesQuery.search = req.query.search;
+    }
     const response = await axios({
+      params: gamesQuery,
       method: 'get',
-      url: `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=25`,
+      url: `https://api.rawg.io/api/games`,
     });
 
     let gamesData = [];

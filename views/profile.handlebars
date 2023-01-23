@@ -1,3 +1,9 @@
+<nav class = "navbar">
+   <ul class="flex-row">
+            <li class="li-inline nav-item"><a href="/">Home</a></li>
+            <li class="li-inline nav-item"><a href="#" id="logout">Logout</a></li>
+        </ul>
+</nav> 
 <div class="row">
   <button class="logout" id="logout"><a href="#">Logout</a></button>
   <div class="col-auto">
@@ -6,6 +12,7 @@
 </div>
 <button class="button is-danger" id="new-review"> <a href="/new">Create Review</a></button>
 <div class="row mt-4">
+  <button class="button is-danger" id="btn-add-review"><a href="/new-review">➕New Review</a></button>
   {{#if Review.length}}
   <div class="col-md-6 review-list">
     <h3>Current Reviews:</h3>
@@ -23,10 +30,16 @@
   </div>
   {{/if}}
 </div>
+<<<<<<< HEAD
 
 
 
 <script src="./js/profile.js"></script>
 <script src="./js/logout.js"></script>
 <script src="./js/review.js"></script>
+=======
+<script src="./js/logout.js"></script>
+<script src="./js/profile.js"></script>
+<script src="./js/new-review.js"></script>
+>>>>>>> origin
 

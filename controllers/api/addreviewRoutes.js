@@ -5,20 +5,21 @@ const withAuth = require('../../utils/auth');
 // router.post('/', withAuth, async (req, res) => {
   router.post('/', async (req, res) => {
   try {
-    const newReview = await Review.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    // const newReview = await Review.create
-    // ({
-    //   game_title: req.body.game_title,
-    //   review: req.body.review,
-    //   user_score: req.body.user_score,
-    //   review_date: req.body.date_created,
+    console.log('post try')
+    // const newReview = await Review.create({
+    //   ...req.body,
     //   user_id: req.session.user_id,
     // });
+
+    const newReview = await Review.create
+    ({
+      game_title: req.body.gameTitle,
+      review: req.body.reviewContent,
+      user_score: req.body.ratingEl,
+      user_id: req.session.user_id,
+    });
     res.status(200).json(newReview);
+    console.log('success')
   } catch (err) {
     res.status(500).json(err);
   }

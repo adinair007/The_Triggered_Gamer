@@ -60,14 +60,16 @@ const reviewFormHandler = async (event) => {
   }
 
   if (gameTitle && ratingEl && reviewContent) {
+    
+    console.log('testing')
     const response = await fetch('/api/add-review', {
       method: 'POST',
-      body: JSON.stringify({ gameTitle, ratingEl, reviewContent }),
+      body: JSON.stringify({ gameTitle:gameTitle.value, ratingEl:ratingEl.value, reviewContent:reviewContent.value }),
       headers: {  'Content-Type': 'application/json' },
     });
-
+    console.log('success')
     if (response.ok) {
-      document.location.replace('/all-reviews');
+      document.location.replace('/review');
     } else {
       alert('Unable to submit review.');
     }

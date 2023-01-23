@@ -1,9 +1,10 @@
 <div class="row">
+  <button class="logout" id="logout"><a href="#">Logout</a></button>
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{User.user_name}}!</h2>
   </div>
 </div>
-
+<button class="button is-danger" id="new-review"> <a href="/new">Create Review</a></button>
 <div class="row mt-4">
   {{#if Review.length}}
   <div class="col-md-6 review-list">
@@ -12,10 +13,10 @@
     {{#each Review as |Review|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/review/{{Review.id}}">{{Review.Review}}</a></h4>
+        <h4><a href="/review/{{Review.id}}">{{Review.review}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{Review.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger delete-review" data-id="{{Review.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -23,6 +24,9 @@
   {{/if}}
 </div>
 
+
+
 <script src="./js/profile.js"></script>
+<script src="./js/logout.js"></script>
 <script src="./js/review.js"></script>
 

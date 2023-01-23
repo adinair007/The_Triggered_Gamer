@@ -38,12 +38,12 @@
 //   gameMetacritic.textContent = gameInfo.metacritic;
 // };
 
-const reviewForm = async (event) => {
+const reviewFormHandler = async (event) => {
   event.preventDefault();
 
   console.log('Inside reviewForm');
   let ratingEl = document.getElementById('user_score');
-  let reviewContent = document.getElementById('Review');
+  let reviewContent = document.getElementById('review');
   let gameTitle = document.getElementById('game_title');
 
   if (!ratingEl.value) {
@@ -54,18 +54,16 @@ const reviewForm = async (event) => {
     alert('Please provide a review.');
   }
 
-  gameTitle = gameTitle.textContent;
-  if (!gameTitle) {
+  // gameTitle = game_title.textContent;
+  if (!gameTitle.value) {
     alert('Please search the game you want to review.');
   }
 
   if (gameTitle && ratingEl && reviewContent) {
-    const response = await fetch(`/api/review`, {
+    const response = await fetch('/api/add-review', {
       method: 'POST',
       body: JSON.stringify({ gameTitle, ratingEl, reviewContent }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {  'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
@@ -117,7 +115,7 @@ const reviewForm = async (event) => {
 //   }
 // };
 
-document.querySelector('.form-group').addEventListener('submit', reviewForm);
+document.querySelector('.new-review-form').addEventListener('submit', reviewFormHandler);
 // document
 //   .querySelector('.reviewList')
 //   .addEventListener('click', delButtonHandler);

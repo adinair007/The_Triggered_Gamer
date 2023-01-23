@@ -74,7 +74,7 @@ router.get('/', async (req, res) => {
     });
 
     const reviews = reviewData.map((review) => review.get({ plain: true }));
-
+    console.log('Inside reviews');
     res.render('all-reviews', {
       reviews,
     });
@@ -113,5 +113,9 @@ router.get('/:id', async (req, res) => {
     res.status(500).render('routeError', { error });
   }
 });
+
+router.get ('/new', withAuth, async( req, res) => {
+  res.render("new-review");
+})
 
 module.exports = router;

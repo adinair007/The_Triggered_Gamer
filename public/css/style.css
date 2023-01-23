@@ -1,5 +1,43 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+#shadow{
+  border-bottom: 40px solid rgb(238, 136, 238);
+  transform: perspective(1em) rotateX(45deg) scale(1, .40);
+  filter: blur(1em);
+  position: relative;
+  top: -45px;
+
+}
+
+.homePageTitle {
+  position: relative;
+  font-family: 'Anton', sans-serif;
+  font-size: 130px;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+  color: darkorchid;
+  padding: .25em 1em;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgb(238, 136, 238),
+               0 0 20px rgb(238, 136, 238),
+               0 0 40px rgb(238, 136, 238),
+               0 0 120px rgb(238, 136, 238);
+
+}
+
+.homePageTitle:hover{
+  color: white;
+}
+
+.mainBackgroundColor{
+  background-color:rgba(0, 0, 0, 0.884);
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+  gap: 65px;
 }
 
 .no-button {
@@ -17,10 +55,56 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
+.goRight {
+  display: flex;
+  justify-content: end;
+  text-decoration: none;
+  font-size: 30px;
   font-weight: bold;
-  margin-left: -5px;
 }
 
+.mainFont {
+  font-family: 'Roboto', sans-serif;
+}
 
+.fa-solid.fa-gun{
+  padding-left: 7%;
+}
+
+.loginForm{
+  background-color: #00000045;
+  color: plum;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(152, 46, 206);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: inset;
+  box-shadow: 0 0 10px rgb(238, 136, 238),
+  0 0 20px rgb(238, 136, 238),
+  0 0 40px rgb(238, 136, 238),
+  0 0 120px rgb(238, 136, 238);
+}
+
+.form-input{
+color: plum;
+background-color: black;
+border-radius: 10px;
+
+}
+
+.btn.btn-primary{
+  background-color: orchid;
+  border-radius: 10px;
+  padding: 2%;
+  width: 100%;
+
+}
+
+.btn.btn-primary:hover{
+  color: white;
+  box-shadow: 0 0 10px rgb(238, 136, 238),
+  0 0 20px rgb(238, 136, 238),
+  0 0 40px rgb(238, 136, 238),
+  0 0 120px rgb(238, 136, 238);
+}

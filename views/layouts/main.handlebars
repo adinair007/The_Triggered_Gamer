@@ -5,24 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Triggered Gamer</title>
+  <link rel="stylesheet" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/Bulma@0.9.1/css/Bulma.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6a7263de79.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+<body class="mainBackgroundColor">
+  <div>
+    <header>
       <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">The Triggered Gamer</a>
+        <a class="homePageTitle" href="/">The Triggered Gamer <span class="icon">
+          <i class="fa-solid fa-gun"></i>
+        </span></a>
       </h1>
+      <div id="shadow"></div>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a class="goRight" href="/login">Login</a>
         {{/if}}
 
 <form method="get" class='form-inline searchForm'>
@@ -43,7 +53,7 @@
 
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="mainFont">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>

@@ -1,5 +1,39 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+#shadow{
+  border-bottom: 40px solid rgb(238, 136, 238);
+  transform: perspective(1em) rotateX(45deg) scale(1, .40);
+  filter: blur(1em);
+  position: relative;
+  top: -45px;
+
+}
+
+.homePageTitle {
+  position: relative;
+  font-family: 'Anton', sans-serif;
+  font-size: 130px;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+  color: darkorchid;
+  padding: .25em 1em;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgb(238, 136, 238),
+               0 0 20px rgb(238, 136, 238),
+               0 0 40px rgb(238, 136, 238),
+               0 0 120px rgb(238, 136, 238);
+
+}
+
+.homePageTitle:hover{
+  color: white;
+}
+
+.mainBackgroundColor{
+  background-color:rgba(0, 0, 0, 0.884);
+}
+
+.lotsOfGuns{
+  content: "\e19b";
 }
 
 .no-button {
@@ -23,4 +57,15 @@ header, .project:not(:last-child) {
   margin-left: -5px;
 }
 
+.goRight {
+  display: flex;
+  justify-content: end;
+}
 
+.mainFont {
+  font-family: 'Roboto', sans-serif;
+}
+
+.fa-solid.fa-gun{
+  padding-left: 7%;
+}

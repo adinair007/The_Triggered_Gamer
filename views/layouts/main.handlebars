@@ -26,7 +26,7 @@
         </span></a>
       </h1>
       <div id="shadow"></div>
-      <nav>
+      <nav id="navFlex" class="mainFont">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
@@ -37,6 +37,7 @@
 
 <form method="get" class='form-inline searchForm'>
           <input
+            class="form-input"
             name="search"
             class='input is-info'
             type='search'
@@ -45,7 +46,7 @@
             id='searchInput'
           />
           <button
-            class='button is-danger is-rounded is-normal is-responsive'
+            class='searchBtn'
             id='searchBtn'
             type='submit'
           >Search</button>

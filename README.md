@@ -28,7 +28,7 @@
   Use the Heroku Link to access The Triggered Gamer. Create an account and feel free to browse the collection of games and create a review!
  
  ## [Screenshots](#table-of-contents)
-  Walkthrough Link: https://watch.screencastify.com/v/miiIMvqzyo2iUAytDoZp
+ 
   
   ## [License](#table-of-contents)
   This application has the following license:

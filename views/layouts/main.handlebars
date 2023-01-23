@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Triggered Gamer</title>
+  <link rel="stylesheet" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/Bulma@0.9.1/css/Bulma.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 </head>
 
 <body class="mainBackgroundColor">
-  <div class="lotsOfGuns">
+  <div>
     <header>
       <h1>
         <a class="homePageTitle" href="/">The Triggered Gamer <span class="icon">
@@ -29,9 +30,9 @@
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a class="goRight" href="/login">login</a>
+        <a class="goRight" href="/login">Login</a>
         {{/if}}
       </nav>
     </header>

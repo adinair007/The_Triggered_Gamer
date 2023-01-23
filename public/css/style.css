@@ -32,8 +32,12 @@
   background-color:rgba(0, 0, 0, 0.884);
 }
 
-.lotsOfGuns{
-  content: "\e19b";
+.login{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+  gap: 65px;
 }
 
 .no-button {
@@ -51,15 +55,12 @@
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
-
 .goRight {
   display: flex;
   justify-content: end;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .mainFont {
@@ -68,4 +69,42 @@
 
 .fa-solid.fa-gun{
   padding-left: 7%;
+}
+
+.loginForm{
+  background-color: #00000045;
+  color: plum;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(152, 46, 206);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: inset;
+  box-shadow: 0 0 10px rgb(238, 136, 238),
+  0 0 20px rgb(238, 136, 238),
+  0 0 40px rgb(238, 136, 238),
+  0 0 120px rgb(238, 136, 238);
+}
+
+.form-input{
+color: plum;
+background-color: black;
+border-radius: 10px;
+
+}
+
+.btn.btn-primary{
+  background-color: orchid;
+  border-radius: 10px;
+  padding: 2%;
+  width: 100%;
+
+}
+
+.btn.btn-primary:hover{
+  color: white;
+  box-shadow: 0 0 10px rgb(238, 136, 238),
+  0 0 20px rgb(238, 136, 238),
+  0 0 40px rgb(238, 136, 238),
+  0 0 120px rgb(238, 136, 238);
 }

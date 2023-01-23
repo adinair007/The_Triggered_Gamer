@@ -1,0 +1,25 @@
+<div class='container reviews' id='all-reviews-page'>
+  <h1> View All Posted Reviews Here!</h1>
+  {{!-- {{#each reviews as |review|}} --}}
+  {{#each reviews}}
+    <div class='card review-cards'>
+      <div class='card-header'>
+        <h2 class='title is-4'>
+          <a href='/review/{{id}}'>{{game_title}}</a>
+        </h2>
+        <div>
+          Posted by
+          {{!-- {{#each users as |user|}} --}}
+          {{user_id}}
+          {{!-- {{/each}} --}}
+          on
+          {{ date_created}}
+          user score: {{user_score}}
+        </div>
+      </div>
+      <div class='card-content'>
+        <p> Review: {{reviews}} </p>
+      </div>
+    </div>
+  {{/each}}
+</div>

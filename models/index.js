@@ -7,10 +7,10 @@ User.hasMany(Review, {
   onDelete: 'CASCADE',
 });
 
-User.hasMany(Games, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
-});
+// User.hasMany(Games, {
+//   foreignKey: 'user_id',
+//   onDelete: 'CASCADE',
+// });
 
 Games.hasMany(Review, {
   foreignKey: 'game_id',

@@ -1,12 +1,56 @@
+
 .game-cards {
 
-  border: 3px black solid;
+  border: 3px rgb(165, 143, 211) solid;
+  border-radius: 5%;
   margin: 15px;
-  padding: 18px;
-  width: 300px;
+  padding: 15px;
+  width: 200px;
   display: inline-flex;
   flex-wrap: wrap;
-  position: relative;
+  color: rgb(105, 64, 180);
+  background-color: rgb(232, 232, 232); 
+}
+
+.has-ration {
+  border-radius: 10%;
+}
+
+
+.modal-container {
+  top: 0;
+  position: absolute;
+  visibility: hidden;
+  display: none;
+  background-color: rgb(22, 22, 22); /* complimenting your modal colors */
+  background-size: 100%;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40%;
+}
+
+
+.modal-container:target {
+  visibility: visible;
+  display: block;
+  border: 20px rgb(165, 143, 211) solid;
+  border-radius: 5%;
+  justify-content: center;
   
   
 }
+.reveal-modal {
+ justify-content: center;
+  position: relative;
+  margin: 0 auto; 
+  
+}
+
+
+
+
+
+
+
+

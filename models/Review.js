@@ -17,7 +17,7 @@ Review.init(
       allowNull: false,
     },
 
-    Review: {
+    review: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -43,13 +43,13 @@ Review.init(
       },
     },
 
-    game_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'games',
-        key: 'id',
-      },
-    },
+    // game_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'games',
+    //     key: 'id',
+    //   },
+    // }
   },
   {
     sequelize,

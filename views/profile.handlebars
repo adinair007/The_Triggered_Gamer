@@ -5,13 +5,12 @@
   </ul>
 </nav>
 <div class='row'>
-  <button class='logout' id='logout'><a href='#'>Logout</a></button>
-  <div class='col-auto'>
+  <div class='welcomeDude'>
     <h2>Welcome, {{User.user_name}}!</h2>
   </div>
 </div>
-<div class='row mt-4'>
-  <button class='button is-danger' id='btn-add-review'><a href='/new'>➕New
+<div class='welcomeDude'>
+  <button class='btn btn-primary' id='btn-add-review'><a href='/new'>➕New
       Review</a></button>
   {{#if Review.length}}
     <div class='col-md-6 review-list'>

@@ -40,6 +40,25 @@
   gap: 65px;
 }
 
+.newReview{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.form-group{
+  color: whitesmoke;
+}
+
+.newReviewHeader{
+  font-size: 35px;
+  color: orchid;
+  text-shadow: 0 0 40px rgb(238, 136, 238),
+               0 0 80px rgb(238, 136, 238);
+}
+
 .no-button {
   background: none;
   border: none;
@@ -56,11 +75,14 @@
 }
 
 .goRight {
-  display: flex;
-  justify-content: end;
-  text-decoration: none;
-  font-size: 30px;
+ color: orchid;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.goRight:hover{
+  color: white;
+  text-shadow: 0 0 10px rgb(238 136 238), 0 0 20px rgb(238 136 238), 0 0 40px rgb(238 136 238), 0 0 120px rgb(238 136 238);
 }
 
 .mainFont {
@@ -79,7 +101,6 @@
   border-color: rgb(152, 46, 206);
   border-radius: 10px;
   padding: 16px;
-  box-shadow: inset;
   box-shadow: 0 0 10px rgb(238, 136, 238),
   0 0 20px rgb(238, 136, 238),
   0 0 40px rgb(238, 136, 238),
@@ -90,10 +111,25 @@
 color: plum;
 background-color: black;
 border-radius: 10px;
+border: black;
+padding: .3rem;
+display: inline-flex;
+margin: 4px;
+}
 
+.input:-internal-autofill-selected{
+color: plum;
+background-color: black;
+border-radius: 10px;
+border: black;
+padding: .3rem;
+display: inline-flex;
+margin: 4px;
+border-style: none;
 }
 
 .btn.btn-primary{
+  border: purple;
   background-color: orchid;
   border-radius: 10px;
   padding: 2%;
@@ -107,4 +143,75 @@ border-radius: 10px;
   0 0 20px rgb(238, 136, 238),
   0 0 40px rgb(238, 136, 238),
   0 0 120px rgb(238, 136, 238);
+}
+
+.searchBtn{
+  border: purple;
+  background-color: orchid;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.searchBtn:hover{
+  color: white;
+  box-shadow: 0 0 10px rgb(238, 136, 238),
+  0 0 20px rgb(238, 136, 238),
+  0 0 40px rgb(238, 136, 238),
+  0 0 120px rgb(238, 136, 238);
+}
+
+
+#navFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin; 5px;
+}
+
+a, a:hover, a:visited, a:active, a:target{
+  text-decoration: none;
+}
+
+.allReviews{
+  margin: 60px;
+}
+
+.card-header{
+  color: rgb(137, 41, 185);
+  padding: .25em 1em;
+  letter-spacing: 2px;
+  text-shadow: 0 0 40px rgb(238, 136, 238),
+               0 0 80px rgb(238, 136, 238);
+}
+
+.card-content{
+  color: white;
+  font-size: 25px;
+}
+
+.linkColor{
+  color: orchid;
+  text-shadow: 0 0 40px rgb(238, 136, 238),
+               0 0 80px rgb(238, 136, 238);
+}
+
+.flex-row{
+  list-style-type: disclosure-open;
+  margin-top: 7px;
+  font-size: 20px;
+    font-weight: 1000;
+    color: azure;
+
+}
+
+.welcomeDude{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+  gap: 65px;
+  font-size: 40px;
+  color: plum;
+  text-shadow: 0 0 40px rgb(238, 136, 238),
+               0 0 80px rgb(238, 136, 238);
 }

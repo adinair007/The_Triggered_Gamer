@@ -2,15 +2,9 @@ const router = require('express').Router();
 const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.post('/', withAuth, async (req, res) => {
-  router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-    console.log('post try')
-    // const newReview = await Review.create({
-    //   ...req.body,
-    //   user_id: req.session.user_id,
-    // });
-
+    console.log('------------TRYING TO POST---------------')
     const newReview = await Review.create
     ({
       game_title: req.body.gameTitle,
@@ -19,7 +13,7 @@ const withAuth = require('../../utils/auth');
       user_id: req.session.user_id,
     });
     res.status(200).json(newReview);
-    console.log('success')
+    console.log('------------POST SUCCESSFUL--------------')
   } catch (err) {
     res.status(500).json(err);
   }

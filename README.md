@@ -21,7 +21,6 @@
   The developers who have contributed to this project are:      
   Jessep Stynchomb: https://github.com/1jessep     
   Jonah Tapia: https://github.com/Jonahttp       
-  Thomas Luna: https://github.com/thomasluna269    
   Aditya Nair: https://github.com/adinair007    
   
   ## [Useage](#table-of-contents)

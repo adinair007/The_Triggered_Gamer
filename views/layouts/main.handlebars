@@ -1,72 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Triggered Gamer</title>
-  <link rel="stylesheet" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/Bulma@0.9.1/css/Bulma.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/6a7263de79.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>The Triggered Gamer</title>
+    <link
+      rel='stylesheet'
+      target='_blank'
+      rel='noopener'
+      href='https://cdn.jsdelivr.net/npm/Bulma@0.9.1/css/Bulma.min.css'
+    />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Anton&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap'
+      rel='stylesheet'
+    />
+    <script
+      src='https://kit.fontawesome.com/6a7263de79.js'
+      crossorigin='anonymous'
+    ></script>
+    <link rel='stylesheet' href='/css/jass.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
 
-<body class="mainBackgroundColor">
-  <div>
-    <header>
-      <h1>
-        <a class="homePageTitle" href="/">The Triggered Gamer <span class="icon">
-          <i class="fa-solid fa-gun"></i>
-        </span></a>
-      </h1>
-      <div id="shadow"></div>
-      <nav id="navFlex" class="mainFont">
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a class="goRight" href="/login">Login</a>
-        {{/if}}
+  <body class='mainBackgroundColor'>
+    <div>
+      <header>
+        <h1>
+          <a class='homePageTitle' href='/'>The Triggered Gamer
+            <span class='icon'>
+              <i class='fa-solid fa-gun'></i>
+            </span></a>
+        </h1>
+        <div id='shadow'></div>
+        <nav id='navFlex' class='mainFont'>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href='/profile'>profile</a>
+            |
+            <button class='no-button' id='logout'>Logout</button>
+          {{else}}
+            <a class='goRight' href='/login'>Login</a>
+          {{/if}}
 
-<form method="get" class='form-inline searchForm'>
-          <input
-            class="form-input"
-            name="search"
-            class='input is-info'
-            type='search'
-            placeholder='Search a game!'
-            aria-label='Search'
-            id='searchInput'
-          />
-          <button
-            class='searchBtn'
-            id='searchBtn'
-            type='submit'
-          >Search</button>
-        </form>
+          <form method='get' class='form-inline searchForm'>
+            <input
+              class='form-input'
+              name='search'
+              class='input is-info'
+              type='search'
+              placeholder='Search a game!'
+              aria-label='Search'
+              id='searchInput'
+            />
+            <button
+              class='searchBtn'
+              id='searchBtn'
+              type='submit'
+            >Search</button>
+          </form>
 
-      </nav>
-    </header>
-    <main class="mainFont">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+        </nav>
+      </header>
+      <main class='mainFont'>
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+      <footer>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+      </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+  </body>
 
 </html>

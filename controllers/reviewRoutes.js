@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'user_name'],
+          attributes: ['user_name'],
         },
         {
           model: Games,
-          attributes: ['id', 'name'],
+          attributes: ['name'],
         },
       ],
     });
@@ -33,11 +33,11 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'user_name'],
+          attributes: ['user_name'],
         },
         {
           model: Games,
-          attributes: ['id', 'name'],
+          attributes: ['name'],
         },
       ],
     });

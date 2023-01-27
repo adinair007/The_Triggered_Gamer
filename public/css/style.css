@@ -165,7 +165,7 @@ border-style: none;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin; 5px;
+  margin: 5px;
 }
 
 a, a:hover, a:visited, a:active, a:target{
@@ -214,4 +214,72 @@ a, a:hover, a:visited, a:active, a:target{
   color: plum;
   text-shadow: 0 0 40px rgb(238, 136, 238),
                0 0 80px rgb(238, 136, 238);
+}
+
+
+
+@media screen and (max-width: 678px) {
+  .homePageTitle {
+    width: 400px;
+    height: 400px;
+    font-size: 50px;
+    letter-spacing: 1px;
+    padding: .1em 0.5em;
+
+  }
+
+  .fa-solid.fa-gun{
+    padding-left: 0%;
+    font-size: 40px;
+  }
+
+  .login {
+    width: 400px;
+    height: 400px;
+    padding-top: 5rem
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homePageTitle {
+    width: 600px;
+    height: 600px;
+    font-size: 80px;
+    letter-spacing: 1px;
+    padding: .15em 0.8em;
+
+  }
+
+  .fa-solid.fa-gun{
+    padding-left: 0%;
+    font-size: 60px;
+  }
+
+  .login {
+    width: 600px;
+    height: 600px;
+    padding-top: 8rem
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .homePageTitle {
+    width: 800px;
+    height: 800px;
+    font-size: 90px;
+    letter-spacing: 1.5px;
+    padding: .25em 1em;
+
+  }
+
+  .fa-solid.fa-gun{
+    padding-left: 3%;
+    font-size: 80px;
+  }
+
+  .login {
+    width: 600px;
+    height: 600px;
+    padding-top: 8rem
+  }
 }
